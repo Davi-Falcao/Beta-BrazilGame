@@ -1,21 +1,33 @@
 package codigoInicial;
 
-import javax.swing.JFrame;
+import jplay.Window;
 
-public class codigoParte1 extends JFrame {
-	
-	public codigoParte1() {
-		setTitle("Brazil Game - Beta");
-		setSize(1366,768);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
-		this.setResizable(true);
-		setVisible(true);
+import javax.swing.JOptionPane;
+
+import jplay.GameImage;
+import jplay.Keyboard;
+import jplay.URL;
+
+
+
+public class codigoParte1 {
+
+	public static void main(String[] args) {
 		
+		Window janela = new Window(1366, 768);
+		GameImage plano = new GameImage(URL.sprite("Fundo_do_menu_demo.jpg"));
+		Keyboard teclado = janela.getKeyboard();
+		
+			while(true) {
+				plano.draw();
+				janela.update();
+				
+				if(teclado.keyDown(Keyboard.ENTER_KEY)) {
+					JOptionPane.showMessageDialog(null, "Funcionando");
+			}
 	}
-	
-	public static void main (String []args) {
-		new codigoParte1();
 	}
 }
+		
+
 
